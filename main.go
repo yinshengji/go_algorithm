@@ -1,6 +1,8 @@
 package main
 
-import "github.com/kr/pretty"
+import (
+	"github.com/kr/pretty"
+)
 
 type ListNode struct {
 	Val int
