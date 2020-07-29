@@ -25,31 +25,27 @@ func FindMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	var nums1Head int = 0
 	var nums2Head int = 0
 	var currentValue int = 0
-	var nums1Used int = 0
-	var nums2Used int = 0
 	pretty.Println(minMedianIndex, maxMedianIndex)
 	for totalIndex <= maxMedianIndex {
 		if nums1Head > (lengthOfNums1 - 1) {
-			if nums2Used > 1 {
-				nums2Head++
-			}
 			currentValue = nums2[nums2Head]
-			nums2Used++
+			nums2Head++
 		} else if nums2Head > (lengthOfNums2 - 1) {
-			if nums1Used > 1 {
-				nums1Head++
-			}
 			currentValue = nums1[nums1Head]
-			nums1Used++
+			nums1Head++
 		} else {
 			if nums1[nums1Head] <= nums2[nums2Head] {
 				currentValue = nums1[nums1Head]
 				nums1Head++
-				nums1Used++
+				if nums1Head <= lengthOfNums1 - 1 {
+					nums2Head++
+				}
 			} else {
 				currentValue = nums2[nums2Head]
 				nums2Head++
-				nums2Used++
+				if nums2Head <= lengthOfNums2 - 1 {
+					nums1Head++
+				}
 			}
 		}
 		pretty.Println(totalIndex, currentValue)
