@@ -37,13 +37,13 @@ func FindMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 			if nums1[nums1Head] <= nums2[nums2Head] {
 				currentValue = nums1[nums1Head]
 				nums1Head++
-				if nums1Head <= lengthOfNums1 - 1 {
+				if nums1Head > lengthOfNums1 {
 					nums2Head++
 				}
 			} else {
 				currentValue = nums2[nums2Head]
 				nums2Head++
-				if nums2Head <= lengthOfNums2 - 1 {
+				if nums2Head > lengthOfNums2 {
 					nums1Head++
 				}
 			}
